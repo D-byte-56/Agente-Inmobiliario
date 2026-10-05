@@ -8,7 +8,12 @@
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Gaby Orona | Realtor en Utah">
 <meta property="og:description" content="Agente inmobiliaria bilingüe: compra, venta y nueva construcción. Bilingual Real Estate Agent.">
-<meta property="og:image" content="https://d-byte-56.github.io/Agente-Inmobiliario/gaby.webp">
+<meta property="og:image" content="https://d-byte-56.github.io/Agente-Inmobiliario/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icono-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icono-192.png">
 <meta name="theme-color" content="#C46A3F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,9 +130,24 @@
   @media (hover:hover){.circ:hover{transform:translateY(-2px);filter:brightness(1.06)}}
   .circ svg{width:36px;height:36px}
 
+  /* Guardar contacto + Agendar cita */
+  .acciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-top:24px}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    min-height:52px;border-radius:14px;padding:0 8px;
+    font-weight:900;font-size:clamp(13.5px,3.9vw,16px);text-decoration:none;white-space:nowrap;
+    transition:transform .18s ease, filter .18s ease;
+  }
+  .btn svg{width:19px;height:19px;flex:none}
+  .btn:active{transform:scale(.97)}
+  @media (hover:hover){.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}}
+  .btn-lleno{background:var(--naranja-osc);color:#fff;box-shadow:0 8px 20px rgba(164,85,47,.28)}
+  .btn-borde{background:#fff;color:var(--azul);box-shadow:0 6px 18px rgba(30,51,84,.10);border:1.5px solid rgba(164,85,47,.45)}
+  .licencia{margin-top:14px;font-size:13px;color:var(--azul);opacity:.8}
+
   /* Logos */
   .logos{
-    margin-top:auto;padding-top:34px;
+    margin-top:auto;padding-top:28px;
     display:flex;align-items:center;justify-content:center;gap:20px;width:100%;
   }
   .logos .div{width:1.5px;height:58px;background:rgba(30,51,84,.4)}
@@ -206,6 +226,21 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6h17v12h-17z"/><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.8 6.3L12 13l8.2-6.7"/></svg>
     </a>
   </div>
+
+  <div class="acciones">
+    <a class="btn btn-lleno" href="gaby-orona.vcf" download="Gaby-Orona.vcf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-3.3 0-8 1.7-8 5v1h10.3a6 6 0 01-.3-2c0-1.5.5-2.8 1.4-3.8-1.2-.2-2.4-.2-3.4-.2zm7 0h-2v3h-3v2h3v3h2v-3h3v-2h-3z"/></svg>
+      Guardar contacto
+    </a>
+    <!-- Agendar cita: abre WhatsApp con un mensaje listo -->
+    <a class="btn btn-borde" href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.%20%2F%20Hi%20Gaby%2C%20I%27d%20like%20to%20schedule%20an%20appointment." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--naranja-osc)" d="M7 2h2v2h6V2h2v2h3a1 1 0 011 1v15a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1h3V2zM5 9v10h14V9H5zm2 2h4v4H7v-4z"/></svg>
+      Agendar cita
+    </a>
+  </div>
+
+  <!-- EDITAR: número de licencia. Quita "hidden" y escribe el número para que aparezca -->
+  <p class="licencia" hidden>Utah License #00000000</p>
 
   <div class="logos">
     <img class="logo-orona" src="logo-orona.png" alt="Orona Real Estate">
