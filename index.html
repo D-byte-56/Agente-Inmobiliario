@@ -29,22 +29,25 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  /* Fondo: la casa arriba, se funde a crema hacia abajo */
-  /* Fondo: casas completas arriba (borrosas) + la misma escena más difuminada detrás de todo */
+  /* Fondo fijo: escena difuminada con velo crema (zona de botones) */
   .fondo{
-    position:fixed;inset:0;z-index:0;overflow:hidden;
-    background:url("casas-fondo.webp") 50% 85%/cover no-repeat, var(--crema);
+    position:fixed;inset:0;z-index:0;
+    background:linear-gradient(rgba(255,248,242,.62),rgba(255,248,242,.62)),url("casas-fondo.webp") 50% 85%/cover no-repeat,var(--crema);
   }
-  .fondo::before{
-    content:"";position:absolute;left:0;right:0;top:0;
-    height:max(62vh,470px);
-    background:url("casas.webp") 50% 0/auto 100% no-repeat;
-    -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
-            mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
+  /* Cabecera: la casa visible con un velo oscuro para que el texto blanco se lea */
+  .hero{
+    position:relative;isolation:isolate;
+    width:calc(100% + 44px);margin:-44px -22px 0;
+    padding:44px 22px 64px;
+    display:flex;flex-direction:column;align-items:center;
   }
-  .fondo::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(255,248,242,0) 0%,rgba(255,248,242,0) 30%,rgba(255,248,242,.38) 42%,rgba(255,248,242,.6) 56%,rgba(255,248,242,.66) 100%);
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(180deg,rgba(16,26,44,.08) 0%,rgba(16,26,44,.38) 42%,rgba(16,26,44,.55) 75%,rgba(16,26,44,.5) 100%),
+      url("casas.webp") 50% 30%/cover no-repeat;
+    -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
   }
   .tarjeta{
     position:relative;z-index:1;
@@ -63,24 +66,24 @@
   }
   h1{
     font-family:"Poppins",sans-serif;font-weight:600;
-    color:var(--naranja);
+    color:#fff;
     font-size:clamp(40px,12vw,52px);
     letter-spacing:-.5px;line-height:1.05;
     margin-top:18px;
-    text-shadow:0 0 14px rgba(255,248,242,.95),0 0 4px rgba(255,248,242,.9);
+    text-shadow:0 2px 12px rgba(10,18,32,.55),0 1px 2px rgba(10,18,32,.5);
   }
   .cargo{
     display:flex;align-items:center;gap:14px;width:100%;
     margin-top:8px;
-    font-weight:700;letter-spacing:.32em;font-size:17px;color:var(--azul);
+    font-weight:700;letter-spacing:.32em;font-size:17px;color:#FFC59E;
   }
-  .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:var(--linea)}
-  .cargo span{margin-right:-.32em;text-shadow:0 0 10px rgba(255,248,242,.95)}
-  .bio{margin-top:12px;font-size:16.5px;line-height:1.38;text-shadow:0 0 12px rgba(255,248,242,.95),0 0 3px rgba(255,248,242,.9)}
+  .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.6)}
+  .cargo span{margin-right:-.32em;text-shadow:0 1px 6px rgba(10,18,32,.6)}
+  .bio{margin-top:12px;font-size:16.5px;line-height:1.38;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(10,18,32,.6),0 1px 2px rgba(10,18,32,.5)}
   .bio p+p{margin-top:8px}
 
   /* Botones de redes */
-  .redes{width:100%;margin-top:26px;display:grid;gap:14px}
+  .redes{width:100%;margin-top:-28px;display:grid;gap:14px}
   .red{
     display:flex;align-items:center;
     background:#fff;border-radius:16px;
@@ -149,6 +152,7 @@
 <div class="fondo" aria-hidden="true"></div>
 
 <main class="tarjeta">
+  <header class="hero">
   <img class="foto" src="gaby.webp" alt="Gaby Orona" width="184" height="184">
 
   <h1>Gaby Orona</h1>
@@ -158,6 +162,7 @@
     <p>Agente inmobiliaria bilingüe, especializada en compra, venta y nueva construcción.</p>
     <p>Bilingual Real Estate Agent specializing in buying, selling, and new construction.</p>
   </div>
+  </header>
 
   <nav class="redes" aria-label="Redes sociales">
     <a class="red" href="https://www.instagram.com/gabyorona.utahrestate" target="_blank" rel="noopener">
