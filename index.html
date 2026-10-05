@@ -33,12 +33,12 @@
   /* Fondo: casas completas arriba (borrosas) + la misma escena más difuminada detrás de todo */
   .fondo{
     position:fixed;inset:0;z-index:0;overflow:hidden;
-    background:url("img/casas-fondo.webp") 50% 85%/cover no-repeat, var(--crema);
+    background:url("casas-fondo.webp") 50% 85%/cover no-repeat, var(--crema);
   }
   .fondo::before{
     content:"";position:absolute;left:0;right:0;top:0;
     height:max(62vh,470px);
-    background:url("img/casas.webp") 50% 0/auto 100% no-repeat;
+    background:url("casas.webp") 50% 0/auto 100% no-repeat;
     -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
             mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
   }
@@ -149,7 +149,7 @@
 <div class="fondo" aria-hidden="true"></div>
 
 <main class="tarjeta">
-  <img class="foto" src="img/gaby.webp" alt="Gaby Orona" width="184" height="184">
+  <img class="foto" src="gaby.webp" alt="Gaby Orona" width="184" height="184">
 
   <h1>Gaby Orona</h1>
   <div class="cargo"><span>REALTOR</span></div>
@@ -192,9 +192,9 @@
   </div>
 
   <div class="logos">
-    <img class="logo-orona" src="img/logo-orona.png" alt="Orona Real Estate">
+    <img class="logo-orona" src="logo-orona.png" alt="Orona Real Estate">
     <span class="div" aria-hidden="true"></span>
-    <img class="logo-presidio" src="img/logo-presidio.png" alt="Presidio Real Estate">
+    <img class="logo-presidio" src="logo-presidio.png" alt="Presidio Real Estate">
   </div>
 </main>
 </body>
