@@ -2,6 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<script>
+  /* Idioma: lo que eligió antes > idioma del teléfono (inglés → EN, todo lo demás → ES) */
+  (function(){var l;try{l=localStorage.getItem("idioma")}catch(e){}
+    if(l!=="es"&&l!=="en"){l=/^en\b/i.test(navigator.language||"")?"en":"es"}
+    document.documentElement.lang=l})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gaby Orona | Realtor en Utah · Orona Real Estate</title>
 <meta name="description" content="Gaby Orona, agente inmobiliaria bilingüe en Utah. Compra, venta y nueva construcción. Bilingual Utah Realtor.">
@@ -72,6 +78,7 @@
     border:5px solid #fff;
     box-shadow:0 10px 30px rgba(30,51,84,.22);
     background:#5a5a5a;
+    margin-top:22px; /* espacio para el selector de idioma */
   }
   h1{
     font-family:"Poppins",sans-serif;font-weight:600;
@@ -87,13 +94,36 @@
     font-weight:700;letter-spacing:.32em;font-size:17px;color:#E8BFA2;
   }
   .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.6)}
-  .cargo .r{width:14px;height:14px;margin-left:-1px;vertical-align:.5em;filter:drop-shadow(0 1px 3px rgba(10,18,32,.6))}
-  .cargo span{margin-right:-.32em;text-shadow:0 1px 6px rgba(10,18,32,.6)}
+  .cargo .r{width:9px;height:9px;margin-left:-1px;vertical-align:.4em;filter:drop-shadow(0 1px 3px rgba(10,18,32,.6))}
+  .cargo span{text-shadow:0 1px 6px rgba(10,18,32,.6)}
+  .cargo .ult{letter-spacing:0}  /* la última R sin espacio extra, para que la ® quede pegada */
   .bio{margin-top:12px;font-size:16.5px;line-height:1.38;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(10,18,32,.6),0 1px 2px rgba(10,18,32,.5)}
   .bio p+p{margin-top:8px}
+  html[lang="es"] .bio [lang="en"], html[lang="en"] .bio [lang="es"]{display:none}
+
+  /* Selector de idioma (banderas) */
+  .idioma{
+    position:absolute;z-index:3;
+    top:calc(12px + env(safe-area-inset-top));right:12px;
+    display:flex;gap:4px;padding:4px;border-radius:999px;
+    background:rgba(16,26,44,.35);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.25);
+  }
+  .idioma button{
+    display:flex;align-items:center;gap:6px;
+    min-height:36px;min-width:44px;padding:0 10px;border:0;border-radius:999px;
+    background:transparent;color:#fff;cursor:pointer;
+    font:900 12.5px/1 "Lato",sans-serif;letter-spacing:.06em;
+    opacity:.7;transition:background .18s ease,color .18s ease,opacity .18s ease;
+  }
+  .idioma button svg{width:22px;height:15px;border-radius:3px;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+  .idioma button[aria-pressed="true"]{background:#fff;color:var(--azul);opacity:1}
+  @media (hover:hover){.idioma button:not([aria-pressed="true"]):hover{opacity:1}}
+  .idioma button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
   /* Botones de redes */
-  .redes{position:relative;z-index:2;width:100%;margin-top:-28px;display:grid;gap:14px}
+  .redes{position:relative;z-index:2;width:100%;margin-top:24px;display:grid;gap:14px}
   .red{
     display:flex;align-items:center;
     background:#fff;border-radius:16px;
@@ -113,13 +143,13 @@
   .red b{font-weight:900;font-size:21px;flex:1;text-align:left}
   .red .flecha{width:22px;height:22px;stroke:var(--naranja);stroke-width:2.6;fill:none}
 
-  /* 3 botones redondos (debajo de Facebook) */
+  /* 3 botones redondos (entre la presentación y las redes) */
   .contacto{
     display:flex;align-items:center;justify-content:center;
-    gap:0;margin-top:26px;width:100%;
+    gap:0;margin-top:-34px;width:100%;
     position:relative;z-index:2;
   }
-  .contacto .div{width:1.5px;height:44px;background:rgba(164,85,47,.5);margin:0 22px}
+  .contacto .div{width:1.5px;height:44px;background:rgba(255,255,255,.55);margin:0 22px}
   .circ{
     width:74px;height:74px;border-radius:50%;
     background:var(--naranja-osc);
@@ -178,19 +208,41 @@
 <div class="fondo" aria-hidden="true"></div>
 
 <main class="tarjeta">
+  <div class="idioma" role="group" aria-label="Idioma / Language">
+    <button type="button" data-lang="es" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#006847"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE1126"/><circle cx="15" cy="10" r="2.6" fill="#8C5A2B"/></svg>ES</button>
+    <button type="button" data-lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="30" height="1.54"/><rect y="4.62" width="30" height="1.54"/><rect y="7.69" width="30" height="1.54"/><rect y="10.77" width="30" height="1.54"/><rect y="13.85" width="30" height="1.54"/><rect y="16.92" width="30" height="1.54"/></g><rect width="13" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.5" cy="2.2" r=".6"/><circle cx="6.5" cy="2.2" r=".6"/><circle cx="10.5" cy="2.2" r=".6"/><circle cx="4.5" cy="5.4" r=".6"/><circle cx="8.5" cy="5.4" r=".6"/><circle cx="2.5" cy="8.6" r=".6"/><circle cx="6.5" cy="8.6" r=".6"/><circle cx="10.5" cy="8.6" r=".6"/></g></svg>EN</button>
+  </div>
+
   <header class="hero">
   <img class="foto" src="gaby.webp" alt="Gaby Orona" width="184" height="184">
 
   <h1>Gaby Orona</h1>
-  <div class="cargo"><span>REALTOR<svg class="r" viewBox="0 0 24 24" role="img" aria-label="marca registrada"><circle cx="12" cy="12" r="10.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 17V7h3.6a2.9 2.9 0 010 5.8H9m3.4 0L15.4 17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span></div>
+  <div class="cargo"><span>REALTO<span class="ult">R</span><svg class="r" viewBox="0 0 24 24" role="img" aria-label="marca registrada" data-es-label="marca registrada" data-en-label="registered trademark"><circle cx="12" cy="12" r="10.2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M9 17V7h3.6a2.9 2.9 0 010 5.8H9m3.4 0L15.4 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span></div>
 
   <div class="bio">
-    <p>Agente inmobiliaria bilingüe, especializada en compra, venta y nueva construcción.</p>
-    <p>Bilingual Real Estate Agent specializing in buying, selling, and new construction.</p>
+    <p lang="es">Agente inmobiliaria bilingüe, especializada en compra, venta y nueva construcción.</p>
+    <p lang="en">Bilingual Real Estate Agent specializing in buying, selling, and new construction.</p>
   </div>
   </header>
 
-  <nav class="redes" aria-label="Redes sociales">
+  <div class="contacto">
+    <!-- EDITAR: número de WhatsApp (solo dígitos con código de país, ej. 18015551234) -->
+    <a class="circ" href="https://wa.me/18018849511" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3.5A12.4 12.4 0 005.3 22.2L3.6 28.5l6.5-1.7A12.4 12.4 0 1016 3.5zm0 22.6c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.8 1 1-3.7-.2-.4A10.2 10.2 0 1116 26.1zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4z"/></svg>
+    </a>
+    <span class="div" aria-hidden="true"></span>
+    <!-- EDITAR: teléfono (con +código de país, ej. +18015551234) -->
+    <a class="circ" href="tel:+18018849511" aria-label="Llamar" data-es-label="Llamar" data-en-label="Call">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    </a>
+    <span class="div" aria-hidden="true"></span>
+    <!-- EDITAR: correo -->
+    <a class="circ" href="mailto:oronarealestate@gmail.com" aria-label="Enviar correo" data-es-label="Enviar correo" data-en-label="Send email">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6h17v12h-17z"/><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.8 6.3L12 13l8.2-6.7"/></svg>
+    </a>
+  </div>
+
+  <nav class="redes" aria-label="Redes sociales" data-es-label="Redes sociales" data-en-label="Social media">
     <a class="red" href="https://www.instagram.com/oronagaby.utah" target="_blank" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1C2.7 8.5 2.7 8.9 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8.1a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zm6.2-8.3a1.15 1.15 0 11-2.3 0 1.15 1.15 0 012.3 0z"/></svg></span>
       <span class="sep"></span>
@@ -206,33 +258,20 @@
     <a class="red" href="https://www.presidioteam.com/oronarealestate" target="_blank" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-2.9a15.7 15.7 0 00-1.4-3.6A8 8 0 0118.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 010-4h3.4a16.5 16.5 0 000 4H4.3zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 015.1 16zM8 8H5.1a8 8 0 014.3-3.6C8.8 5.5 8.3 6.7 8 8zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 010-4h4.6a14.7 14.7 0 010 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 01-4.3 3.6zm1.7-5.6a16.5 16.5 0 000-4h3.4a8.2 8.2 0 010 4h-3.4z"/></svg></span>
       <span class="sep"></span>
-      <b>Sitio web</b>
+      <b data-es="Sitio web" data-en="Website">Sitio web</b>
       <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
   </nav>
 
-  <div class="contacto">
-    <!-- EDITAR: número de WhatsApp (solo dígitos con código de país, ej. 18015551234) -->
-    <a class="circ" href="https://wa.me/18018849511" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3.5A12.4 12.4 0 005.3 22.2L3.6 28.5l6.5-1.7A12.4 12.4 0 1016 3.5zm0 22.6c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.8 1 1-3.7-.2-.4A10.2 10.2 0 1116 26.1zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4z"/></svg>
-    </a>
-    <span class="div" aria-hidden="true"></span>
-    <!-- EDITAR: teléfono (con +código de país, ej. +18015551234) -->
-    <a class="circ" href="tel:+18018849511" aria-label="Llamar">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
-    </a>
-    <span class="div" aria-hidden="true"></span>
-    <!-- EDITAR: correo -->
-    <a class="circ" href="mailto:oronarealestate@gmail.com" aria-label="Enviar correo">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6h17v12h-17z"/><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.8 6.3L12 13l8.2-6.7"/></svg>
-    </a>
-  </div>
-
   <div class="acciones">
     <!-- Agendar cita: abre WhatsApp con un mensaje listo -->
-    <a class="btn btn-lleno" href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.%20%2F%20Hi%20Gaby%2C%20I%27d%20like%20to%20schedule%20an%20appointment." target="_blank" rel="noopener">
+    <!-- EDITAR: el mensaje cambia según el idioma -->
+    <a class="btn btn-lleno" href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+       data-es-href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+       data-en-href="https://wa.me/18018849511?text=Hi%20Gaby%2C%20I%27d%20like%20to%20schedule%20an%20appointment."
+       target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M7 2h2v2h6V2h2v2h3a1 1 0 011 1v15a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1h3V2zM5 9v10h14V9H5zm2 2h4v4H7v-4z"/></svg>
-      Agendar cita
+      <span data-es="Agendar cita" data-en="Book an appointment">Agendar cita</span>
     </a>
   </div>
 
@@ -245,5 +284,27 @@
     <img class="logo-presidio" src="logo-presidio.png" alt="Presidio Real Estate">
   </div>
 </main>
+
+<script>
+  /* Cambio de idioma ES / EN */
+  (function(){
+    var titulos={es:"Gaby Orona | Realtor en Utah · Orona Real Estate",en:"Gaby Orona | Utah Realtor · Orona Real Estate"};
+    function aplicar(l){
+      document.documentElement.lang=l;
+      document.title=titulos[l];
+      document.querySelectorAll("[data-"+l+"]").forEach(function(el){el.textContent=el.getAttribute("data-"+l)});
+      document.querySelectorAll("[data-"+l+"-label]").forEach(function(el){el.setAttribute("aria-label",el.getAttribute("data-"+l+"-label"))});
+      document.querySelectorAll("[data-"+l+"-href]").forEach(function(el){el.href=el.getAttribute("data-"+l+"-href")});
+      document.querySelectorAll(".idioma button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l?"true":"false")});
+    }
+    document.querySelectorAll(".idioma button").forEach(function(b){
+      b.addEventListener("click",function(){
+        aplicar(b.dataset.lang);
+        try{localStorage.setItem("idioma",b.dataset.lang)}catch(e){}
+      });
+    });
+    aplicar(document.documentElement.lang==="en"?"en":"es");
+  })();
+</script>
 </body>
 </html>
