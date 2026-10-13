@@ -1,316 +1,100 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<script>
-  /* Idioma: lo que eligió antes > idioma del teléfono (inglés → EN, todo lo demás → ES) */
-  (function(){var l;try{l=localStorage.getItem("idioma")}catch(e){}
-    if(l!=="es"&&l!=="en"){l=/^en\b/i.test(navigator.language||"")?"en":"es"}
-    document.documentElement.lang=l})();
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gaby Orona | Realtor en Utah · Orona Real Estate</title>
-<meta name="description" content="Gaby Orona, agente inmobiliaria bilingüe en Utah. Compra, venta y nueva construcción. Bilingual Utah Realtor.">
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Gaby Orona | Realtor en Utah">
-<meta property="og:description" content="Agente inmobiliaria bilingüe: compra, venta y nueva construcción. Bilingual Real Estate Agent.">
-<meta property="og:image" content="https://d-byte-56.github.io/Agente-Inmobiliario/compartir.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="icono-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icono-192.png">
-<meta name="theme-color" content="#C46A3F">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Firma Gaby Orona</title>
 <style>
-  /* ====== DATOS DE CONTACTO: EDITAR AQUÍ ====== */
-  /* (los enlaces están en el HTML de abajo, busca "EDITAR") */
+body{margin:0;padding:10px;background:#FFF8F2;font-family:Arial,Helvetica,sans-serif;color:#222}
+.caja{background:#fff;border-radius:12px;padding:16px;max-width:460px;margin:0 auto 14px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+button{display:block;width:100%;max-width:460px;margin:0 auto 14px;padding:16px;border:0;border-radius:10px;background:#A4552F;color:#fff;font-size:17px;font-weight:bold}
+button.ok{background:#2e7d32}
+h2{font-size:16px;margin:0 0 8px;color:#C46A3F}
+ol{margin:0;padding-left:20px;font-size:14px;line-height:1.5}
+#firma{padding:12px 6px}</style></head><body>
+<div class="caja" id="firma"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:440px;width:100%;font-family:Arial,Helvetica,sans-serif;background:#ffffff;">
+  <tr>
+    <!-- Columna izquierda: foto + botón -->
+    <td valign="top" width="139" style="width:139px;padding:0 14px 0 0;vertical-align:top;">
+      <img src="https://d-byte-56.github.io/firma-gaby/imagenes/foto-gaby-2.png" width="125" height="156" alt="Gaby Orona" style="display:block;width:125px;height:156px;border:0;border-radius:10px;">
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:14px;width:125px;">
+        <tr>
+          <td align="center" bgcolor="#A4552F" style="background:#A4552F;border-radius:8px;">
+            <a href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.%20/%20Hi%20Gaby%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" style="display:block;padding:9px 2px;font-family:Arial,Helvetica,sans-serif;font-size:9.5px;font-weight:bold;letter-spacing:0.5px;color:#ffffff;text-decoration:none;white-space:nowrap;">BOOK APPOINTMENT&nbsp;&rarr;</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <!-- Columna derecha: datos -->
+    <td valign="top" style="vertical-align:top;padding:0;">
+      <div style="font-family:'Poppins','Arial Black',Arial,Helvetica,sans-serif;font-size:26px;line-height:28px;font-weight:900;color:#C46A3F;letter-spacing:0.5px;white-space:nowrap;">GABY ORONA</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#1E3354;padding:1px 0 6px 1px;letter-spacing:1px;">REALTOR&reg;</div>
+      <div style="border-top:1.5px solid #C46A3F;font-size:0;line-height:0;height:0;margin:0 0 6px 0;">&nbsp;</div>
 
-  :root{
-    --naranja:#C46A3F;        /* nombre, iconos de redes, flechas */
-    --naranja-osc:#A4552F;    /* los 3 botones redondos (más oscuros) */
-    --azul:#1E3354;           /* textos */
-    --crema:#FFF8F2;          /* fondo cálido bajo la foto */
-    --linea:rgba(30,51,84,.35);
-    /* Tamaños que se ajustan a la altura de la pantalla (todo cabe sin scroll) */
-    --foto:clamp(92px,16.5svh,160px);
-    --circ:clamp(50px,8.2svh,70px);
-    --ico:clamp(36px,5.8svh,48px);
-    --red:clamp(46px,7.8svh,66px);
-    --btn:clamp(42px,6.2svh,52px);
-    --gap:clamp(6px,1.5svh,14px);
-    --logo-o:clamp(104px,16svh,144px);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{min-height:100%}
-  body{
-    font-family:"Lato",system-ui,sans-serif;
-    color:var(--azul);
-    background:var(--crema);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  /* Fondo fijo: escena difuminada con velo crema (zona de botones) */
-  .fondo{
-    position:fixed;inset:0;z-index:0;
-    background:linear-gradient(rgba(255,248,242,.62),rgba(255,248,242,.62)),url("casas-fondo.webp") 50% 85%/cover no-repeat,var(--crema);
-  }
-  /* Cabecera: la casa visible con un velo oscuro para que el texto blanco se lea */
-  .hero{
-    position:relative;isolation:isolate;
-    width:calc(100% + 36px);margin:-36px -18px 0;
-    padding:36px 18px 40px;
-    display:flex;flex-direction:column;align-items:center;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:
-      linear-gradient(180deg,rgba(16,26,44,.08) 0%,rgba(16,26,44,.38) 42%,rgba(16,26,44,.55) 75%,rgba(16,26,44,.5) 100%),
-      url("casas.webp") 50% 30%/cover no-repeat;
-    -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
-            mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
-  }
-  .tarjeta{
-    position:relative;z-index:1;
-    max-width:440px;margin:0 auto;
-    padding:36px 18px 12px;
-    min-height:100svh;
-    display:flex;flex-direction:column;align-items:center;
-    text-align:center;
-  }
-  .foto{
-    width:var(--foto);height:var(--foto);border-radius:50%;
-    object-fit:cover;
-    border:5px solid #fff;
-    box-shadow:0 10px 30px rgba(30,51,84,.22);
-    background:#5a5a5a;
-    margin-top:18px; /* espacio para el selector de idioma */
-  }
-  h1{
-    font-family:"Poppins",sans-serif;font-weight:600;
-    color:#fff;
-    font-size:clamp(30px,calc(5.2svh + 1vw),46px);
-    letter-spacing:-.5px;line-height:1.05;
-    margin-top:10px;
-    text-shadow:0 2px 12px rgba(10,18,32,.55),0 1px 2px rgba(10,18,32,.5);
-  }
-  .cargo{
-    display:flex;align-items:center;gap:14px;width:100%;
-    margin-top:4px;
-    font-weight:700;letter-spacing:.32em;font-size:15px;color:#E8BFA2;
-  }
-  .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.6)}
-  .cargo .r{width:9px;height:9px;margin-left:.5px;vertical-align:.33em;filter:drop-shadow(0 1px 3px rgba(10,18,32,.6))}
-  .cargo span{text-shadow:0 1px 6px rgba(10,18,32,.6)}
-  .cargo .ult{letter-spacing:0}  /* la última R sin espacio extra, para que la ® quede pegada */
-  .bio{margin-top:8px;font-size:clamp(13.5px,1.9svh,15.5px);line-height:1.32;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(10,18,32,.6),0 1px 2px rgba(10,18,32,.5)}
-  .bio p+p{margin-top:8px}
-  html[lang="es"] .bio [lang="en"], html[lang="en"] .bio [lang="es"]{display:none}
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+        <tr>
+          <td style="padding:2px 8px 2px 0;"><a href="tel:+18018849511" style="text-decoration:none;"><img src="https://d-byte-56.github.io/firma-gaby/imagenes/icono-telefono-2.png" width="21" height="21" alt="Tel" style="display:block;border:0;width:21px;height:21px;"></a></td>
+          <td style="padding:2px 0;font-size:13px;line-height:17px;"><a href="tel:+18018849511" style="color:#1E3354;text-decoration:none;">(801) 884-9511</a></td>
+        </tr>
+        <tr>
+          <td style="padding:3px 8px 2px 0;"><a href="mailto:oronarealestate@gmail.com" style="text-decoration:none;"><img src="https://d-byte-56.github.io/firma-gaby/imagenes/icono-correo-2.png" width="21" height="21" alt="Email" style="display:block;border:0;width:21px;height:21px;"></a></td>
+          <td style="padding:3px 0 2px 0;font-size:13px;line-height:17px;"><a href="mailto:oronarealestate@gmail.com" style="color:#1E3354;text-decoration:none;">oronarealestate@gmail.com</a></td>
+        </tr>
+        <tr>
+          <td style="padding:3px 8px 2px 0;"><a href="https://www.instagram.com/gabyoronarealtor/" target="_blank" style="text-decoration:none;"><img src="https://d-byte-56.github.io/firma-gaby/imagenes/icono-instagram-2.png" width="21" height="21" alt="Instagram" style="display:block;border:0;width:21px;height:21px;"></a></td>
+          <td style="padding:3px 0 2px 0;font-size:13px;line-height:17px;"><a href="https://www.instagram.com/gabyoronarealtor/" target="_blank" style="color:#1E3354;text-decoration:none;">@GabyOronaRealtor</a></td>
+        </tr>
+      </table>
 
-  /* Selector de idioma (banderas) */
-  .idioma{
-    position:absolute;z-index:3;
-    top:calc(12px + env(safe-area-inset-top));right:12px;
-    display:flex;gap:4px;padding:4px;border-radius:999px;
-    background:rgba(16,26,44,.35);
-    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.25);
-  }
-  .idioma button{
-    display:flex;align-items:center;gap:6px;
-    min-height:36px;min-width:44px;padding:0 10px;border:0;border-radius:999px;
-    background:transparent;color:#fff;cursor:pointer;
-    font:900 12.5px/1 "Lato",sans-serif;letter-spacing:.06em;
-    opacity:.7;transition:background .18s ease,color .18s ease,opacity .18s ease;
-  }
-  .idioma button svg{width:22px;height:15px;border-radius:3px;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
-  .idioma button[aria-pressed="true"]{background:#fff;color:var(--azul);opacity:1}
-  @media (hover:hover){.idioma button:not([aria-pressed="true"]):hover{opacity:1}}
-  .idioma button:focus-visible{outline:2px solid #fff;outline-offset:2px}
-
-  /* Botones de redes */
-  .redes{position:relative;z-index:2;width:100%;margin-top:var(--gap);display:grid;gap:var(--gap)}
-  .red{
-    display:flex;align-items:center;
-    background:#fff;border-radius:16px;
-    padding:7px 14px 7px 9px;min-height:var(--red);
-    text-decoration:none;color:var(--azul);
-    box-shadow:0 6px 20px rgba(30,51,84,.10);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .red:active{transform:scale(.98)}
-  @media (hover:hover){.red:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(30,51,84,.16)}}
-  .red .ico{
-    width:var(--ico);height:var(--ico);border-radius:11px;flex:none;
-    background:var(--naranja);display:grid;place-items:center;
-  }
-  .red .ico svg{width:60%;height:60%;fill:#fff}
-  .red .sep{width:1.5px;align-self:stretch;margin:5px 14px;background:rgba(196,106,63,.45)}
-  .red b{font-weight:900;font-size:clamp(15px,2.2svh,18px);flex:1;text-align:left}
-  .red .flecha{width:20px;height:20px;stroke:var(--naranja);stroke-width:2.6;fill:none}
-
-  /* 3 botones redondos (entre la presentación y las redes) */
-  .contacto{
-    display:flex;align-items:center;justify-content:center;
-    gap:0;margin-top:calc(var(--circ) / -2.2);width:100%;
-    position:relative;z-index:2;
-  }
-  .contacto .div{width:1.5px;height:calc(var(--circ) * .6);background:rgba(255,255,255,.55);margin:0 20px}
-  .circ{
-    width:var(--circ);height:var(--circ);border-radius:50%;
-    background:var(--naranja-osc);
-    display:grid;place-items:center;
-    box-shadow:0 8px 20px rgba(164,85,47,.3);
-    transition:transform .18s ease, filter .18s ease;
-  }
-  .circ:active{transform:scale(.94)}
-  @media (hover:hover){.circ:hover{transform:translateY(-2px);filter:brightness(1.06)}}
-  .circ svg{width:48%;height:48%}
-
-  /* Agendar cita */
-  .acciones{display:grid;grid-template-columns:1fr;gap:10px;width:100%;margin-top:var(--gap)}
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    min-height:var(--btn);border-radius:12px;padding:0 8px;
-    font-weight:900;font-size:clamp(13.5px,2svh,15.5px);text-decoration:none;white-space:nowrap;
-    transition:transform .18s ease, filter .18s ease;
-  }
-  .btn svg{width:19px;height:19px;flex:none}
-  .btn:active{transform:scale(.97)}
-  @media (hover:hover){.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}}
-  .btn-lleno{background:var(--naranja-osc);color:#fff;box-shadow:0 8px 20px rgba(164,85,47,.28)}
-  .btn-borde{background:#fff;color:var(--azul);box-shadow:0 6px 18px rgba(30,51,84,.10);border:1.5px solid rgba(164,85,47,.45)}
-  .licencia{margin-top:14px;font-size:13px;color:var(--azul);opacity:.8}
-
-  /* Logos */
-  .logos{
-    margin-top:auto;padding-top:var(--gap);
-    display:flex;align-items:center;justify-content:center;gap:18px;width:100%;
-  }
-  .logos .div{width:1.5px;height:44px;background:rgba(30,51,84,.4)}
-  .logos img{display:block;height:auto}
-  .logo-orona{width:var(--logo-o)}
-  .logo-presidio{width:calc(var(--logo-o) * .78)}
-
-  /* Entrada suave al cargar */
-  @media (prefers-reduced-motion:no-preference){
-    .tarjeta > *{animation:sube .6s ease both}
-    .tarjeta > :nth-child(2){animation-delay:.06s}
-    .tarjeta > :nth-child(3){animation-delay:.1s}
-    .tarjeta > :nth-child(4){animation-delay:.14s}
-    .tarjeta > :nth-child(5){animation-delay:.18s}
-    .tarjeta > :nth-child(6){animation-delay:.22s}
-    .tarjeta > :nth-child(7){animation-delay:.26s}
-    @keyframes sube{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-  }
-  @media (max-width:360px){
-    .contacto .div{margin:0 14px}
-  }
-</style>
-</head>
-<body>
-<div class="fondo" aria-hidden="true"></div>
-
-<main class="tarjeta">
-  <div class="idioma" role="group" aria-label="Idioma / Language">
-    <button type="button" data-lang="es" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#006847"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE1126"/><circle cx="15" cy="10" r="2.6" fill="#8C5A2B"/></svg>ES</button>
-    <button type="button" data-lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="30" height="1.54"/><rect y="4.62" width="30" height="1.54"/><rect y="7.69" width="30" height="1.54"/><rect y="10.77" width="30" height="1.54"/><rect y="13.85" width="30" height="1.54"/><rect y="16.92" width="30" height="1.54"/></g><rect width="13" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.5" cy="2.2" r=".6"/><circle cx="6.5" cy="2.2" r=".6"/><circle cx="10.5" cy="2.2" r=".6"/><circle cx="4.5" cy="5.4" r=".6"/><circle cx="8.5" cy="5.4" r=".6"/><circle cx="2.5" cy="8.6" r=".6"/><circle cx="6.5" cy="8.6" r=".6"/><circle cx="10.5" cy="8.6" r=".6"/></g></svg>EN</button>
-  </div>
-
-  <header class="hero">
-  <img class="foto" src="gaby.webp" alt="Gaby Orona" width="184" height="184">
-
-  <h1>Gaby Orona</h1>
-  <div class="cargo"><span>REALTO<span class="ult">R</span><svg class="r" viewBox="0 0 24 24" role="img" aria-label="marca registrada" data-es-label="marca registrada" data-en-label="registered trademark"><circle cx="12" cy="12" r="10.2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M9 17V7h3.6a2.9 2.9 0 010 5.8H9m3.4 0L15.4 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span></div>
-
-  <div class="bio">
-    <p lang="es">Agente inmobiliaria bilingüe, especializada en compra, venta y nueva construcción.</p>
-    <p lang="en">Bilingual Real Estate Agent specializing in buying, selling, and new construction.</p>
-  </div>
-  </header>
-
-  <div class="contacto">
-    <!-- EDITAR: número de WhatsApp (solo dígitos con código de país, ej. 18015551234) -->
-    <a class="circ" href="https://wa.me/18018849511" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3.5A12.4 12.4 0 005.3 22.2L3.6 28.5l6.5-1.7A12.4 12.4 0 1016 3.5zm0 22.6c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.8 1 1-3.7-.2-.4A10.2 10.2 0 1116 26.1zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4z"/></svg>
-    </a>
-    <span class="div" aria-hidden="true"></span>
-    <!-- EDITAR: teléfono (con +código de país, ej. +18015551234) -->
-    <a class="circ" href="tel:+18018849511" aria-label="Llamar" data-es-label="Llamar" data-en-label="Call">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
-    </a>
-    <span class="div" aria-hidden="true"></span>
-    <!-- EDITAR: correo -->
-    <a class="circ" href="mailto:oronarealestate@gmail.com" aria-label="Enviar correo" data-es-label="Enviar correo" data-en-label="Send email">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6h17v12h-17z"/><path fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" d="M3.8 6.3L12 13l8.2-6.7"/></svg>
-    </a>
-  </div>
-
-  <nav class="redes" aria-label="Redes sociales" data-es-label="Redes sociales" data-en-label="Social media">
-    <a class="red" href="https://www.instagram.com/gabyoronarealtor?stkn=MTYzb3gzMmRpMzFqdw%3D%3D&utm_source=qr" target="_blank" rel="noopener">
-      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1C2.7 8.5 2.7 8.9 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8.1a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zm6.2-8.3a1.15 1.15 0 11-2.3 0 1.15 1.15 0 012.3 0z"/></svg></span>
-      <span class="sep"></span>
-      <b>Instagram</b>
-      <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-    </a>
-    <a class="red" href="https://www.facebook.com/gabyorona.utahrealestate" target="_blank" rel="noopener">
-      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21.5v-8.2h2.8l.4-3.2h-3.2V8.1c0-.9.3-1.6 1.6-1.6h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4v3.2h2.8v8.2h3.4z"/></svg></span>
-      <span class="sep"></span>
-      <b>Facebook</b>
-      <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-    </a>
-    <a class="red" href="https://www.presidioteam.com/oronarealestate" target="_blank" rel="noopener">
-      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-2.9a15.7 15.7 0 00-1.4-3.6A8 8 0 0118.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 010-4h3.4a16.5 16.5 0 000 4H4.3zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 015.1 16zM8 8H5.1a8 8 0 014.3-3.6C8.8 5.5 8.3 6.7 8 8zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 010-4h4.6a14.7 14.7 0 010 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 01-4.3 3.6zm1.7-5.6a16.5 16.5 0 000-4h3.4a8.2 8.2 0 010 4h-3.4z"/></svg></span>
-      <span class="sep"></span>
-      <b data-es="Sitio web" data-en="Website">Sitio web</b>
-      <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-    </a>
-  </nav>
-
-  <div class="acciones">
-    <!-- Agendar cita: abre WhatsApp con un mensaje listo -->
-    <!-- EDITAR: el mensaje cambia según el idioma -->
-    <a class="btn btn-lleno" href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
-       data-es-href="https://wa.me/18018849511?text=Hola%20Gaby%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
-       data-en-href="https://wa.me/18018849511?text=Hi%20Gaby%2C%20I%27d%20like%20to%20schedule%20an%20appointment."
-       target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M7 2h2v2h6V2h2v2h3a1 1 0 011 1v15a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1h3V2zM5 9v10h14V9H5zm2 2h4v4H7v-4z"/></svg>
-      <span data-es="Agendar cita" data-en="Book an appointment">Agendar cita</span>
-    </a>
-  </div>
-
-  <!-- EDITAR: número de licencia. Quita "hidden" y escribe el número para que aparezca -->
-  <p class="licencia" hidden>Utah License #00000000</p>
-
-  <div class="logos">
-    <img class="logo-orona" src="logo-orona.png" alt="Orona Real Estate">
-    <span class="div" aria-hidden="true"></span>
-    <img class="logo-presidio" src="logo-presidio.png" alt="Presidio Real Estate">
-  </div>
-</main>
-
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12.5px;line-height:16px;font-weight:bold;color:#A4552F;padding:10px 0 2px 0;">No es un sue&ntilde;o, es un plan. Hag&aacute;moslo juntos.</div>
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:12px;line-height:15px;font-style:italic;color:#1E3354;">It&rsquo;s not a dream, it&rsquo;s a plan. Let&rsquo;s make yours happen together.</div>
+    </td>
+  </tr>
+  <!-- Pie: logo a la izquierda, QR a la derecha -->
+  <tr>
+    <td colspan="2" style="padding:12px 0 0 0;">
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;border-top:1.5px solid #C46A3F;">
+        <tr>
+          <td valign="middle" style="vertical-align:middle;padding:10px 0 0 0;">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:130px;">
+              <tr><td align="center" style="text-align:center;">
+                <img src="https://d-byte-56.github.io/firma-gaby/imagenes/logo-orona.png" width="130" height="49" alt="Orona Real Estate" style="display:block;border:0;width:130px;height:49px;">
+                <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:14px;color:#1E3354;padding-top:4px;letter-spacing:0.3px;">Presidio Real Estate</div>
+              </td></tr>
+            </table>
+          </td>
+          <td valign="middle" align="right" style="vertical-align:middle;text-align:right;padding:10px 0 0 10px;">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="right" style="border-collapse:collapse;">
+              <tr><td align="center" style="text-align:center;">
+                <a href="https://d-byte-56.github.io/Agente-Inmobiliario/" target="_blank" style="text-decoration:none;"><img src="https://d-byte-56.github.io/firma-gaby/imagenes/qr-biolink.png" width="74" height="74" alt="QR - Bio Link" style="display:block;border:0;width:74px;height:74px;"></a>
+                <div style="font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:12px;color:#1E3354;padding-top:3px;letter-spacing:0.5px;">SCAN ME</div>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</div>
+<button id="copiar">Copiar firma</button>
+<div class="caja"><h2>App de Gmail (iPhone o Samsung)</h2><ol>
+<li>Toca <b>Copiar firma</b>.</li>
+<li>Abre <b>mail.google.com</b> en Chrome o Safari y activa <b>Sitio de escritorio / Versión para computadora</b>.</li>
+<li>&#9881; Configuración &rarr; Ver toda la configuración &rarr; <b>Firma</b> &rarr; Crear nueva &rarr; pega &rarr; elígela en <i>"Para correos nuevos"</i> y <i>"Para respuestas"</i> &rarr; <b>Guardar cambios</b> (al final).</li>
+<li>En la app de Gmail: Configuración &rarr; tu cuenta &rarr; <b>Firma móvil</b> &rarr; apagada o vacía.</li>
+<li>Envíate un correo de prueba.</li></ol></div>
+<div class="caja"><h2>App Mail del iPhone</h2><ol>
+<li>Toca <b>Copiar firma</b>.</li>
+<li>Ajustes &rarr; Apps &rarr; Mail &rarr; <b>Firma</b> &rarr; borra lo que haya y pega.</li>
+<li>Si se pega sin diseño: agita el iPhone &rarr; <b>Deshacer</b>.</li></ol></div>
 <script>
-  /* Cambio de idioma ES / EN */
-  (function(){
-    var titulos={es:"Gaby Orona | Realtor en Utah · Orona Real Estate",en:"Gaby Orona | Utah Realtor · Orona Real Estate"};
-    function aplicar(l){
-      document.documentElement.lang=l;
-      document.title=titulos[l];
-      document.querySelectorAll("[data-"+l+"]").forEach(function(el){el.textContent=el.getAttribute("data-"+l)});
-      document.querySelectorAll("[data-"+l+"-label]").forEach(function(el){el.setAttribute("aria-label",el.getAttribute("data-"+l+"-label"))});
-      document.querySelectorAll("[data-"+l+"-href]").forEach(function(el){el.href=el.getAttribute("data-"+l+"-href")});
-      document.querySelectorAll(".idioma button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l?"true":"false")});
-    }
-    document.querySelectorAll(".idioma button").forEach(function(b){
-      b.addEventListener("click",function(){
-        aplicar(b.dataset.lang);
-        try{localStorage.setItem("idioma",b.dataset.lang)}catch(e){}
-      });
-    });
-    aplicar(document.documentElement.lang==="en"?"en":"es");
-  })();
-</script>
-</body>
-</html>
+document.getElementById('copiar').onclick=async function(){
+  var b=this, el=document.getElementById('firma'), html=el.innerHTML, txt=el.innerText;
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})]);
+  }catch(e){
+    var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    try{document.execCommand('copy');}catch(_){}
+    s.removeAllRanges();
+  }
+  b.textContent='¡Copiada! Ahora pégala'; b.className='ok';
+  setTimeout(function(){b.textContent='Copiar firma';b.className='';},3000);
+};
+</script></body></html>
