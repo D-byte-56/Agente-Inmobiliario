@@ -34,6 +34,14 @@
     --azul:#1E3354;           /* textos */
     --crema:#FFF8F2;          /* fondo cálido bajo la foto */
     --linea:rgba(30,51,84,.35);
+    /* Tamaños que se ajustan a la altura de la pantalla (todo cabe sin scroll) */
+    --foto:clamp(92px,16.5svh,160px);
+    --circ:clamp(50px,8.2svh,70px);
+    --ico:clamp(36px,5.8svh,48px);
+    --red:clamp(46px,7.8svh,66px);
+    --btn:clamp(42px,6.2svh,52px);
+    --gap:clamp(6px,1.5svh,14px);
+    --logo-o:clamp(104px,16svh,144px);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{min-height:100%}
@@ -52,8 +60,8 @@
   /* Cabecera: la casa visible con un velo oscuro para que el texto blanco se lea */
   .hero{
     position:relative;isolation:isolate;
-    width:calc(100% + 44px);margin:-44px -22px 0;
-    padding:44px 22px 64px;
+    width:calc(100% + 36px);margin:-36px -18px 0;
+    padding:36px 18px 40px;
     display:flex;flex-direction:column;align-items:center;
   }
   .hero::before{
@@ -67,37 +75,37 @@
   .tarjeta{
     position:relative;z-index:1;
     max-width:440px;margin:0 auto;
-    padding:44px 22px 34px;
+    padding:36px 18px 12px;
     min-height:100svh;
     display:flex;flex-direction:column;align-items:center;
     text-align:center;
   }
   .foto{
-    width:184px;height:184px;border-radius:50%;
+    width:var(--foto);height:var(--foto);border-radius:50%;
     object-fit:cover;
     border:5px solid #fff;
     box-shadow:0 10px 30px rgba(30,51,84,.22);
     background:#5a5a5a;
-    margin-top:22px; /* espacio para el selector de idioma */
+    margin-top:18px; /* espacio para el selector de idioma */
   }
   h1{
     font-family:"Poppins",sans-serif;font-weight:600;
     color:#fff;
-    font-size:clamp(40px,12vw,52px);
+    font-size:clamp(30px,calc(5.2svh + 1vw),46px);
     letter-spacing:-.5px;line-height:1.05;
-    margin-top:18px;
+    margin-top:10px;
     text-shadow:0 2px 12px rgba(10,18,32,.55),0 1px 2px rgba(10,18,32,.5);
   }
   .cargo{
     display:flex;align-items:center;gap:14px;width:100%;
-    margin-top:8px;
-    font-weight:700;letter-spacing:.32em;font-size:17px;color:#E8BFA2;
+    margin-top:4px;
+    font-weight:700;letter-spacing:.32em;font-size:15px;color:#E8BFA2;
   }
   .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.6)}
   .cargo .r{width:9px;height:9px;margin-left:.5px;vertical-align:.33em;filter:drop-shadow(0 1px 3px rgba(10,18,32,.6))}
   .cargo span{text-shadow:0 1px 6px rgba(10,18,32,.6)}
   .cargo .ult{letter-spacing:0}  /* la última R sin espacio extra, para que la ® quede pegada */
-  .bio{margin-top:12px;font-size:16.5px;line-height:1.38;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(10,18,32,.6),0 1px 2px rgba(10,18,32,.5)}
+  .bio{margin-top:8px;font-size:clamp(13.5px,1.9svh,15.5px);line-height:1.32;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(10,18,32,.6),0 1px 2px rgba(10,18,32,.5)}
   .bio p+p{margin-top:8px}
   html[lang="es"] .bio [lang="en"], html[lang="en"] .bio [lang="es"]{display:none}
 
@@ -123,11 +131,11 @@
   .idioma button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
   /* Botones de redes */
-  .redes{position:relative;z-index:2;width:100%;margin-top:24px;display:grid;gap:14px}
+  .redes{position:relative;z-index:2;width:100%;margin-top:var(--gap);display:grid;gap:var(--gap)}
   .red{
     display:flex;align-items:center;
     background:#fff;border-radius:16px;
-    padding:10px 18px 10px 12px;min-height:76px;
+    padding:7px 14px 7px 9px;min-height:var(--red);
     text-decoration:none;color:var(--azul);
     box-shadow:0 6px 20px rgba(30,51,84,.10);
     transition:transform .18s ease, box-shadow .18s ease;
@@ -135,23 +143,23 @@
   .red:active{transform:scale(.98)}
   @media (hover:hover){.red:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(30,51,84,.16)}}
   .red .ico{
-    width:56px;height:56px;border-radius:13px;flex:none;
+    width:var(--ico);height:var(--ico);border-radius:11px;flex:none;
     background:var(--naranja);display:grid;place-items:center;
   }
-  .red .ico svg{width:34px;height:34px;fill:#fff}
-  .red .sep{width:1.5px;align-self:stretch;margin:6px 18px;background:rgba(196,106,63,.45)}
-  .red b{font-weight:900;font-size:21px;flex:1;text-align:left}
-  .red .flecha{width:22px;height:22px;stroke:var(--naranja);stroke-width:2.6;fill:none}
+  .red .ico svg{width:60%;height:60%;fill:#fff}
+  .red .sep{width:1.5px;align-self:stretch;margin:5px 14px;background:rgba(196,106,63,.45)}
+  .red b{font-weight:900;font-size:clamp(15px,2.2svh,18px);flex:1;text-align:left}
+  .red .flecha{width:20px;height:20px;stroke:var(--naranja);stroke-width:2.6;fill:none}
 
   /* 3 botones redondos (entre la presentación y las redes) */
   .contacto{
     display:flex;align-items:center;justify-content:center;
-    gap:0;margin-top:-34px;width:100%;
+    gap:0;margin-top:calc(var(--circ) / -2.2);width:100%;
     position:relative;z-index:2;
   }
-  .contacto .div{width:1.5px;height:44px;background:rgba(255,255,255,.55);margin:0 22px}
+  .contacto .div{width:1.5px;height:calc(var(--circ) * .6);background:rgba(255,255,255,.55);margin:0 20px}
   .circ{
-    width:74px;height:74px;border-radius:50%;
+    width:var(--circ);height:var(--circ);border-radius:50%;
     background:var(--naranja-osc);
     display:grid;place-items:center;
     box-shadow:0 8px 20px rgba(164,85,47,.3);
@@ -159,14 +167,14 @@
   }
   .circ:active{transform:scale(.94)}
   @media (hover:hover){.circ:hover{transform:translateY(-2px);filter:brightness(1.06)}}
-  .circ svg{width:36px;height:36px}
+  .circ svg{width:48%;height:48%}
 
   /* Agendar cita */
-  .acciones{display:grid;grid-template-columns:1fr;gap:12px;width:100%;margin-top:24px}
+  .acciones{display:grid;grid-template-columns:1fr;gap:10px;width:100%;margin-top:var(--gap)}
   .btn{
     display:flex;align-items:center;justify-content:center;gap:8px;
-    min-height:52px;border-radius:14px;padding:0 8px;
-    font-weight:900;font-size:clamp(13.5px,3.9vw,16px);text-decoration:none;white-space:nowrap;
+    min-height:var(--btn);border-radius:12px;padding:0 8px;
+    font-weight:900;font-size:clamp(13.5px,2svh,15.5px);text-decoration:none;white-space:nowrap;
     transition:transform .18s ease, filter .18s ease;
   }
   .btn svg{width:19px;height:19px;flex:none}
@@ -178,13 +186,13 @@
 
   /* Logos */
   .logos{
-    margin-top:auto;padding-top:28px;
-    display:flex;align-items:center;justify-content:center;gap:20px;width:100%;
+    margin-top:auto;padding-top:var(--gap);
+    display:flex;align-items:center;justify-content:center;gap:18px;width:100%;
   }
-  .logos .div{width:1.5px;height:58px;background:rgba(30,51,84,.4)}
+  .logos .div{width:1.5px;height:44px;background:rgba(30,51,84,.4)}
   .logos img{display:block;height:auto}
-  .logo-orona{width:150px}
-  .logo-presidio{width:118px}
+  .logo-orona{width:var(--logo-o)}
+  .logo-presidio{width:calc(var(--logo-o) * .78)}
 
   /* Entrada suave al cargar */
   @media (prefers-reduced-motion:no-preference){
@@ -198,9 +206,7 @@
     @keyframes sube{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   }
   @media (max-width:360px){
-    .circ{width:64px;height:64px}.circ svg{width:31px;height:31px}
-    .contacto .div{margin:0 16px}
-    .logo-orona{width:128px}.logo-presidio{width:100px}
+    .contacto .div{margin:0 14px}
   }
 </style>
 </head>
