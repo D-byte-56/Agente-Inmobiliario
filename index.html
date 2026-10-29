@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icono-180.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icono-192.png">
-<meta name="theme-color" content="#C46A3F">
+<meta name="theme-color" content="#CE5100">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
@@ -29,8 +29,8 @@
   /* (los enlaces están en el HTML de abajo, busca "EDITAR") */
 
   :root{
-    --naranja:#C46A3F;        /* nombre, iconos de redes, flechas */
-    --naranja-osc:#A4552F;    /* los 3 botones redondos (más oscuros) */
+    --naranja:#CE5100;        /* nombre, iconos de redes, flechas */
+    --naranja-osc:#CE5100;    /* los 3 botones redondos (más oscuros) */
     --azul:#1E3354;           /* textos */
     --crema:#FFF8F2;          /* fondo cálido bajo la foto */
     --linea:rgba(30,51,84,.35);
@@ -99,7 +99,7 @@
   .cargo{
     display:flex;align-items:center;gap:14px;width:100%;
     margin-top:2px;
-    font-weight:700;letter-spacing:.32em;font-size:15px;color:#E8BFA2;
+    font-weight:700;letter-spacing:.32em;font-size:15px;color:#EEC2A6;
   }
   .cargo::before,.cargo::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.6)}
   .cargo .r{width:9px;height:9px;margin-left:.5px;vertical-align:.33em;filter:drop-shadow(0 1px 3px rgba(10,18,32,.6))}
@@ -147,7 +147,7 @@
     background:var(--naranja);display:grid;place-items:center;
   }
   .red .ico svg{width:60%;height:60%;fill:#fff}
-  .red .sep{width:1.5px;align-self:stretch;margin:5px 14px;background:rgba(196,106,63,.45)}
+  .red .sep{width:1.5px;align-self:stretch;margin:5px 14px;background:rgba(206,81,0,.45)}
   .red b{font-weight:900;font-size:clamp(15px,2.2svh,18px);flex:1;text-align:left}
   .red .flecha{width:20px;height:20px;stroke:var(--naranja);stroke-width:2.6;fill:none}
 
@@ -162,7 +162,7 @@
     width:var(--circ);height:var(--circ);border-radius:50%;
     background:var(--naranja-osc);
     display:grid;place-items:center;
-    box-shadow:0 8px 20px rgba(164,85,47,.3);
+    box-shadow:0 8px 20px rgba(206,81,0,.3);
     transition:transform .18s ease, filter .18s ease;
   }
   .circ:active{transform:scale(.94)}
@@ -180,8 +180,8 @@
   .btn svg{width:19px;height:19px;flex:none}
   .btn:active{transform:scale(.97)}
   @media (hover:hover){.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}}
-  .btn-lleno{background:var(--naranja-osc);color:#fff;box-shadow:0 8px 20px rgba(164,85,47,.28)}
-  .btn-borde{background:#fff;color:var(--azul);box-shadow:0 6px 18px rgba(30,51,84,.10);border:1.5px solid rgba(164,85,47,.45)}
+  .btn-lleno{background:var(--naranja-osc);color:#fff;box-shadow:0 8px 20px rgba(206,81,0,.28)}
+  .btn-borde{background:#fff;color:var(--azul);box-shadow:0 6px 18px rgba(30,51,84,.10);border:1.5px solid rgba(206,81,0,.45)}
   .licencia{margin-top:14px;font-size:13px;color:var(--azul);opacity:.8}
 
   /* Logos */
